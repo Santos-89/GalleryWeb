@@ -42,5 +42,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Auto-generado por scripts/generate-media.mjs — no editar manualmente
-lib/media-generated.ts
+# Auto-generado por scripts/generate-media.mjs
+
