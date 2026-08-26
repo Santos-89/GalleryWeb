@@ -3,7 +3,7 @@ import { useParams } from 'next/navigation';
 import { useState } from 'react';
 import Link from 'next/link';
 import LightboxModal from '@/components/LightboxModal';
-import MasonryGrid from '@/components/MasonryGrid';
+import InteractiveBentoGallery from '@/components/InteractiveBentoGallery';
 import { GROUPS, MOCK_MEDIA, MediaItem } from '@/lib/data';
 import { ChevronLeft } from 'lucide-react';
 
@@ -31,7 +31,7 @@ export default function GroupPageClient() {
         {/* Botón de Retorno */}
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-400 hover:text-indigo-300 mb-8 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800/80 hover:border-indigo-500/30 backdrop-blur-md transition-all"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-400 hover:text-indigo-300 mb-8 px-3.5 py-2 rounded-full bg-slate-900 border border-slate-800/80 hover:border-indigo-500/30 backdrop-blur-md transition-all cursor-pointer"
         >
           <ChevronLeft size={14} /> Volver a la Galería General
         </Link>
@@ -44,22 +44,27 @@ export default function GroupPageClient() {
                 className="w-5 h-5 rounded-full border-2 border-white shadow-md animate-pulse"
                 style={{ backgroundColor: group.hex }}
               />
-              <span className="text-xs font-mono uppercase tracking-widest text-slate-400">
-                GRUPO DE COLOR
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-slate-400">
+                GALERÍA DE EQUIPO
               </span>
             </div>
+
             <h1 className="text-4xl md:text-5xl font-black text-white leading-tight">
               {group.name}
             </h1>
-            <p className="text-lg italic text-slate-300 mt-1 font-light">
-              "{group.slogan}"
-            </p>
+
+            {group.slogan && (
+              <p className="text-lg italic text-indigo-200 mt-1 font-light">
+                "{group.slogan}"
+              </p>
+            )}
+
             <p className="text-sm text-slate-400 mt-3 max-w-xl font-light leading-relaxed">
               {group.description}
             </p>
           </div>
 
-          <div className="text-center md:text-right bg-slate-950/40 p-5 rounded-2xl border border-white/5 min-w-[150px]">
+          <div className="text-center md:text-right bg-slate-950/40 p-5 rounded-2xl border border-white/5 min-w-[160px]">
             <span className="text-4xl font-black text-white">{groupMedia.length}</span>
             <span className="block text-[10px] text-slate-400 uppercase tracking-widest mt-1 font-semibold">
               Archivos Multimedia
@@ -67,15 +72,15 @@ export default function GroupPageClient() {
           </div>
         </div>
 
-        {/* Galería Masonry del Grupo */}
+        {/* Galería Bento del Grupo */}
         {groupMedia.length > 0 ? (
-          <MasonryGrid
+          <InteractiveBentoGallery
             items={groupMedia}
             onItemClick={(item) => setSelectedMedia(item)}
           />
         ) : (
-          <div className="text-center py-20 border border-dashed border-slate-800 rounded-3xl">
-            <p className="text-slate-400">No hay archivos multimedia para este grupo todavía.</p>
+          <div className="text-center py-20 border border-dashed border-slate-800 rounded-3xl bg-slate-900/30">
+            <p className="text-slate-400 font-light">No hay archivos multimedia cargados para este grupo todavía.</p>
           </div>
         )}
       </div>

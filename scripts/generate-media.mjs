@@ -27,10 +27,10 @@ const OUTPUT_FILE = join(ROOT, 'lib', 'media-generated.ts');
 const IMAGE_EXTS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.webp', '.avif']);
 const VIDEO_EXTS = new Set(['.mp4', '.mov', '.webm', '.ogg']);
 
-// Grupos disponibles
+// Grupos disponibles (14 grupos oficiales)
 const GROUPS = [
-  'rojo', 'azul', 'verde', 'amarillo', 'naranja', 'morado',
-  'rosa', 'turquesa', 'dorado', 'plateado', 'coral', 'violeta'
+  'blanco', 'azul', 'amarillo', 'turquesa', 'rojo', 'verde-limon',
+  'azul-gris', 'rosado', 'morado', 'cafe', 'verde', 'celeste', 'negro', 'vino'
 ];
 
 /**
