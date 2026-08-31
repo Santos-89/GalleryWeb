@@ -2,10 +2,18 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { GroupInfo, getAiImageUrl } from '@/lib/data';
+import { GroupInfo, getAiImageUrl, MediaItem } from '@/lib/data';
+import { GENERATED_GROUP_MEDIA } from '@/lib/media-generated';
 
 interface GroupElasticGalleryProps {
   groups: GroupInfo[];
+}
+
+/** Devuelve la URL de portada real del grupo, o imagen IA como fallback */
+function getGroupCover(groupId: string, groupName: string, index: number): string {
+  const real = GENERATED_GROUP_MEDIA.find((m: MediaItem) => m.groupColor === groupId && m.type === 'photo');
+  if (real) return real.url;
+  return getAiImageUrl(`${groupName} youth camp team vibrant outdoor`, 800, 600, index + 200);
 }
 
 export default function GroupElasticGallery({ groups }: GroupElasticGalleryProps) {
@@ -29,16 +37,11 @@ export default function GroupElasticGallery({ groups }: GroupElasticGalleryProps
               className="relative overflow-hidden cursor-pointer"
               style={{ minWidth: 0 }}
             >
-              {/* Imagen de fondo */}
+              {/* Imagen de fondo — foto real del grupo o IA como fallback */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700"
                 style={{
-                  backgroundImage: `url(${getAiImageUrl(
-                    `${group.name} youth camp team vibrant outdoor`,
-                    800,
-                    600,
-                    index + 200
-                  )})`,
+                  backgroundImage: `url(${getGroupCover(group.id, group.name, index)})`,
                   transform: isActive ? 'scale(1.04)' : 'scale(1)',
                 }}
               />
@@ -153,16 +156,11 @@ export default function GroupElasticGallery({ groups }: GroupElasticGalleryProps
                 boxShadow: isActive ? `0 8px 24px ${group.hex}30` : 'none',
               }}
             >
-              {/* Imagen de fondo */}
+              {/* Imagen de fondo — foto real del grupo o IA como fallback */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-all duration-500"
                 style={{
-                  backgroundImage: `url(${getAiImageUrl(
-                    `${group.name} youth camp team vibrant outdoor`,
-                    800,
-                    600,
-                    index + 200
-                  )})`,
+                  backgroundImage: `url(${getGroupCover(group.id, group.name, index)})`,
                   transform: isActive ? 'scale(1.03)' : 'scale(1)',
                 }}
               />
