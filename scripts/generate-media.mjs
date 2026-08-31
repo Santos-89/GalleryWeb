@@ -72,6 +72,8 @@ function scanFolder(folderPath, groupColor, idPrefix) {
   if (!existsSync(folderPath)) return [];
 
   const files = readdirSync(folderPath).filter((f) => {
+    // Excluir archivos de metadatos de macOS (._) y archivos ocultos
+    if (f.startsWith('._') || f.startsWith('.')) return false;
     const ext = extname(f).toLowerCase();
     return IMAGE_EXTS.has(ext) || VIDEO_EXTS.has(ext);
   });

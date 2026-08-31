@@ -12,18 +12,6 @@ export interface MediaItem {
   date: string;
 }
 
-export interface MediaItem {
-  id: string;
-  title: string;
-  type: 'photo' | 'video';
-  url: string;
-  thumbnailUrl: string;
-  groupColor: string;
-  aspectRatio: 'square' | 'portrait' | 'landscape';
-  likes: number;
-  date: string;
-}
-
 export interface GroupInfo {
   id: string;
   name: string;
