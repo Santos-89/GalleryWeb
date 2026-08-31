@@ -154,7 +154,7 @@ export default function LightboxModal({ item, onClose }: LightboxModalProps) {
                     style={{ backgroundColor: groupInfo?.hex || '#3b82f6' }}
                   />
                   <span className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider">
-                    {groupInfo?.name || item.groupColor}
+                    {groupInfo?.name || (item.groupColor === 'general' ? 'General' : item.groupColor)}
                   </span>
                 </div>
 

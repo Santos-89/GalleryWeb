@@ -96,7 +96,7 @@ export default function MasonryGrid({ items, onItemClick }: MasonryGridProps) {
                         borderColor: `${group?.hex || '#3b82f6'}40`
                       }}
                     >
-                      {group?.name || item.groupColor}
+                      {group?.name || (item.groupColor === 'general' ? 'General' : item.groupColor)}
                     </span>
                     <span className="flex items-center gap-1 text-[10px] text-rose-300">
                       <Heart size={11} fill="currentColor" /> {item.likes}

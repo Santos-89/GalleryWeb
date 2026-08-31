@@ -89,7 +89,7 @@ function scanFolder(folderPath, groupColor, idPrefix) {
       type,
       url: publicPath,
       thumbnailUrl: publicPath,
-      groupColor: groupColor === 'general' ? 'rojo' : groupColor, // general usa rojo por defecto en galería de grupos
+      groupColor,
       aspectRatio,
       likes: 0,
       date: new Date().toISOString().split('T')[0],

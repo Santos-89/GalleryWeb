@@ -166,7 +166,7 @@ export default function InteractiveBentoGallery({
                           color: group?.glowHex || '#a78bfa',
                         }}
                       >
-                        {group?.name || item.groupColor}
+                        {group?.name || (item.groupColor === 'general' ? 'General' : item.groupColor)}
                       </span>
                     </div>
 
