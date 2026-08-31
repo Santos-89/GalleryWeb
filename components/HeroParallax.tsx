@@ -42,10 +42,10 @@ export default function HeroParallax() {
       {/* Capa Media: Título y descripción */}
       <div ref={layerMidRef} className="relative z-10 text-center px-4 max-w-4xl">
         <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 text-xs font-semibold tracking-widest uppercase mb-4 backdrop-blur-md">
-          Campamento de Jóvenes 2026
+          AXIOS CAMP 2026
         </span>
         <h1 className="text-5xl md:text-7xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-indigo-300 drop-shadow-lg">
-          GALERÍA VIRTUAL 3D
+          MODO CAMPEÓN
         </h1>
         <p className="mt-4 text-slate-300 text-lg md:text-xl font-light max-w-2xl mx-auto">
           Revive los mejores momentos del campamento. Explora la galería general o navega por los 14 grupos de colores.

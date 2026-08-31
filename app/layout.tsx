@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Galería Virtual 3D - Campamento de Jóvenes",
-  description: "Explora los mejores momentos del campamento a través de nuestra galería interactiva en 3D. Descubre las fotos y videos de cada uno de los 12 grupos de colores.",
+  title: "MODO CAMPEÓN - AXIOS CAMP 2026",
+  description: "Explora los mejores momentos del campamento a través de nuestra galería interactiva. Descubre las fotos y videos de cada uno de los 14 grupos de colores.",
 };
 
 export default function RootLayout({
